@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.eti.luiza.garagem.repositories.GaragemRepository;
+import java.util.Optional;
 
 @Service
 public class GaragemService {
@@ -19,8 +20,8 @@ public class GaragemService {
         return result;
     }
 
-    public List<Veiculo> findById(long id) {
-        List<Veiculo> result = garagemRepository.findById(id);
+    public Optional<Veiculo> findById(long id) {
+        Optional<Veiculo> result = garagemRepository.findById(id);
         return result;
     }
 
