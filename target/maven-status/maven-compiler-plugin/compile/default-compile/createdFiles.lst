@@ -1,4 +1,5 @@
 br\eti\luiza\garagem\controllers\GaragemController.class
+br\eti\luiza\garagem\DTO\VeiculoMinDTO.class
 br\eti\luiza\garagem\entities\Veiculo.class
 br\eti\luiza\garagem\services\GaragemService.class
 br\eti\luiza\garagem\GaragemApplication.class

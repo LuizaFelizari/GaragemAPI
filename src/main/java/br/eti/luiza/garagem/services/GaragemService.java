@@ -1,6 +1,7 @@
 
 package br.eti.luiza.garagem.services;
 
+import br.eti.luiza.garagem.DTO.VeiculoMinDTO;
 import br.eti.luiza.garagem.entities.Veiculo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,15 @@ public class GaragemService {
         return result;
     }
 
+    public List<VeiculoMinDTO> findByColor(String cor) {
+        List<Veiculo> resultGaragem = garagemRepository.findByCorIgnoreCase(cor);
+      
+        List<VeiculoMinDTO> resultDTO = resultGaragem.stream()
+                .map(x -> new VeiculoMinDTO(x)).toList();
+        
+        return resultDTO;
+    }
+    
+    
 }
+

@@ -1,6 +1,7 @@
 
 package br.eti.luiza.garagem.controllers;
 
+import br.eti.luiza.garagem.DTO.VeiculoMinDTO;
 import br.eti.luiza.garagem.entities.Veiculo;
 import br.eti.luiza.garagem.services.GaragemService;
 import java.util.List;
@@ -41,4 +42,21 @@ public class GaragemController {
  
     }
 
+    @GetMapping("/cor/{cor}")
+    public ResponseEntity<List<VeiculoMinDTO>> findByColorIgnoreCase(@PathVariable String cor) {
+        
+        List<VeiculoMinDTO> result = garagemService.findByColor(cor);
+
+        if(result.isEmpty()){
+            return ResponseEntity.notFound().build();
+  
+        } else {
+            return ResponseEntity.ok(result);
+
+            
+        }
+ 
+    }
+
+    
 }
