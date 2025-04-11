@@ -35,6 +35,13 @@ public class GaragemService {
         return resultDTO;
     }
     
-    
+    public List<VeiculoMinDTO> findByYear(String ano) {
+        List<Veiculo> resultGaragem = garagemRepository.findByAnoIgnoreCase(ano);
+        
+        List<VeiculoMinDTO> resultDTO = resultGaragem.stream()
+                .map(x -> new VeiculoMinDTO(x)).toList();
+        
+        return resultDTO;
+    }
 }
 

@@ -57,6 +57,18 @@ public class GaragemController {
         }
  
     }
+    @GetMapping("/ano/{ano}")
+    public ResponseEntity<List<VeiculoMinDTO>> findByYearIgnoreCase(@PathVariable String ano) {
+        
+        List<VeiculoMinDTO> result = garagemService.findByYear(ano);
 
-    
+        if(result.isEmpty()){
+            return ResponseEntity.notFound().build();
+  
+        } else {
+            return ResponseEntity.ok(result);
+
+
+        }
+    }
 }
